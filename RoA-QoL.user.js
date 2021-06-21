@@ -213,7 +213,7 @@
                 subtab: 'platinum',
             },
 
-            trackerHistoryThreshold: () => moment.tz(GAME_TIME_ZONE).subtract(14, 'days').format('YYYY-MM-DD 00:00:00'),
+            trackerHistoryThreshold: () => moment.tz(GAME_TIME_ZONE).subtract(7, 'days').format('YYYY-MM-DD 00:00:00'),
 
             drop_tracker: {
                 trackerStart: moment.tz(GAME_TIME_ZONE).format('Do MMM Y HH:mm:ss'),
@@ -959,12 +959,12 @@
                     VARIABLES.jsstore.db.isDbExist(QOL_DB_NAME).then(exists => {
                         if (exists) {
                             VARIABLES.jsstore.db.openDb(QOL_DB_NAME).then(() => {
-                                log('opened IDB');
+                                //log('opened IDB');
                                 fn.__.getLatestTrackerValues();
                             }).catch(e => console.error(e));
                         } else {
                             VARIABLES.jsstore.db.createDb(TRACKER_DB_SCHEMA).then(() => {
-                                log('created IDB');
+                                //log('created IDB');
                                 fn.__.getLatestTrackerValues();
                             }).catch(e => console.error(e));
                         }
@@ -1552,9 +1552,9 @@
                 registerFameOwnGemTableObserver() {
                     OBSERVERS.general.fameOwnGemsObserver.observe(document.querySelector('table#inventoryOtherTable'), {childList: true});
                     setTimeout(() => {
-                        log('Disconnecting gem list observer');
+                        //log('Disconnecting gem list observer');
                         OBSERVERS.general.fameOwnGemsObserver.disconnect();
-                        log('Reset Gems list');
+                        //log('Reset Gems list');
                         VARIABLES.gems = {};
                     }, 2E3);
                 },
