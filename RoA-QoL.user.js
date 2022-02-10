@@ -30,9 +30,9 @@
 
     'use strict';
 
-	// Overide log --Michael  T.
-	function log() {};
-	
+    // Overide log --Michael  T.
+    function log() {};
+
     if (typeof MutationObserver.prototype.restart !== 'function') {
         MutationObserver.prototype.observeArguments = []; // internal variable to store the args
         MutationObserver.prototype.originalObserve  = MutationObserver.prototype.observe; // save the original implementation
@@ -926,28 +926,12 @@
 
                     data = DB_QUEUE[TRACKER_TBL_NAME];
                     if (data.length > 0) {
-                        VARIABLES.jsstore.db.insert({
-                            into  : TRACKER_TBL_NAME,
-                            values: data,
-                            return: true
-                        }).then(rows => {
-                            if (rows.length > 0) {
-                                DB_QUEUE[TRACKER_TBL_NAME] = [];
-                            }
-                        });
+                        DB_QUEUE[TRACKER_TBL_NAME] = [];
                     }
 
                     data = DB_QUEUE[AVGDMGSTR_TBL_NAME];
                     if (data.length > 0) {
-                        VARIABLES.jsstore.db.insert({
-                            into  : AVGDMGSTR_TBL_NAME,
-                            values: data,
-                            return: true
-                        }).then(rows => {
-                            if (rows.length > 0) {
-                                DB_QUEUE[AVGDMGSTR_TBL_NAME] = [];
-                            }
-                        });
+                        DB_QUEUE[TRACKER_TBL_NAME] = [];
                     }
                 },
 
