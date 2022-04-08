@@ -929,14 +929,30 @@
                     let data;
 
                     data = DB_QUEUE[TRACKER_TBL_NAME];
-                    if (data.length > 0) {
-                        DB_QUEUE[TRACKER_TBL_NAME] = [];
+                    /*if (data.length > 0) {
+                         VARIABLES.jsstore.db.insert({
+                            into  : TRACKER_TBL_NAME,
+                            values: data,
+                            return: true
+                        }).then(rows => {
+                            if (rows.length > 0) {
+                                DB_QUEUE[TRACKER_TBL_NAME] = [];
+                            }
+                        });
                     }
 
                     data = DB_QUEUE[AVGDMGSTR_TBL_NAME];
                     if (data.length > 0) {
-                        DB_QUEUE[TRACKER_TBL_NAME] = [];
-                    }
+                        VARIABLES.jsstore.db.insert({
+                            into  : AVGDMGSTR_TBL_NAME,
+                            values: data,
+                            return: true
+                        }).then(rows => {
+                            if (rows.length > 0) {
+                                DB_QUEUE[AVGDMGSTR_TBL_NAME] = [];
+                            }
+                        });
+                    }*/
                 },
 
                 resetFavico() {
